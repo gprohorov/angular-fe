@@ -1,1 +1,12 @@
 <p>items-list works!</p>
+<h2>Items List</h2>
+
+<ul>
+  <li
+    *ngFor="let item of items; let i = index"
+  >
+    {{ item.name }}
+  </li>
+
+
+</ul>
