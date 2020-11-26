@@ -5,7 +5,15 @@ import { AppComponent } from './app.component';
 import { ItemsListComponent } from './component/item/items-list/items-list.component';
 import { ItemAddComponent } from './component/item/item-add/item-add.component';
 import {HttpClientModule} from '@angular/common/http';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'items', pathMatch: 'full' },
+  {path: 'items', component: ItemsListComponent },
+  {path: 'add', component: ItemAddComponent }
+];
+
 
 @NgModule({
   declarations: [
@@ -16,7 +24,8 @@ import {RouterModule} from '@angular/router';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot(routes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

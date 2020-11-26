@@ -9,13 +9,15 @@ import {ItemService} from 'src/app/service/item.service';
 export class ItemsListComponent implements OnInit {
 
   items: any;
+  currentItem = null;
+  currentIndex = -1;
+  name = '';
 
   constructor(private service: ItemService) { }
 
   ngOnInit(): void {
     this.extractItems();
   }
-
 
    extractItems(): void {
     this.service.getAll()
@@ -31,7 +33,16 @@ export class ItemsListComponent implements OnInit {
 
 
 
+  setActiveItem(item: any, index: number): void  {
+    this.currentItem = item;
+    this.currentIndex = index;
+  }
 
+  deleteItem(id: string): void {
 
+  }
 
+  updateItem(): void {
+
+  }
 }
