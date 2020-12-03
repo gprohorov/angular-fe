@@ -1,41 +1,43 @@
 <div class="list row">
 <div class="col-md-6">
-  <h4>items List</h4>
+<h1>Items list</h1>
   <ul class="list-group">
     <li
       class="list-group-item"
-      *ngFor="let item of items; let i = index"
+      *ngFor="let item of items;  let i = index"
       [class.active]="i == currentIndex"
       (click)="setActiveItem(item, i)"
     >
-      {{ item.name }}
+      {{item.name}}
     </li>
   </ul>
 </div>
 
 <div class="col-md-6">
+  <br>
+  <br>
   <div *ngIf="currentItem">
-    <br>
-    <h4>item</h4>
-    <div>
-      <label><strong>id:</strong></label> {{ currentItem._id }}
-    </div>
-    <div>
-      <label><strong>name:</strong></label> {{ currentItem.name }}
-    </div>
-    <div>
-      <label><strong>Description:</strong></label>
-      {{ currentItem.description }}
-    </div>
+    <h2>Item</h2>
+     <div>
+       <label> ID:  </label> {{currentItem._id}}
+     </div>
+         <div>
+       <label> Name:  </label> {{currentItem.name}}
+     </div>
+         <div>
+       <label> Desc:  </label> {{currentItem.description}}
+     </div>
 
-    <button class="badge badge-danger mr-2" (click)="deleteItem(currentItem._id)">
-      Delete
-    </button>
-
-    <button class="badge badge-warningr mr-2" (click)="updateItem()">
-      Update
-    </button>
-
+    <div >
+     <button style="margin-right: 20px" class="badge-danger" (click)="deleteItem(currentItem.id)">Delete</button>
+      <button class="badge-warning" (click)="updateItem()">Edit</button>
   </div>
+  </div>
+
+    <div *ngIf="!currentItem">
+      <p> Select an item</p>
+    </div>
+
+
 </div>
 </div>

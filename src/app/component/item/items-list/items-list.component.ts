@@ -9,9 +9,9 @@ import {ItemService} from 'src/app/service/item.service';
 export class ItemsListComponent implements OnInit {
 
   items: any;
-  currentItem = null;
   currentIndex = -1;
-  name = '';
+  currentItem = null;
+
 
   constructor(private service: ItemService) { }
 
@@ -33,16 +33,20 @@ export class ItemsListComponent implements OnInit {
 
 
 
-  setActiveItem(item: any, index: number): void  {
-    this.currentItem = item;
-    this.currentIndex = index;
-  }
+
 
   deleteItem(id: string): void {
-
   }
 
   updateItem(): void {
 
   }
+
+  setActiveItem(item: any, i: number): void {
+    this.currentIndex = i;
+    this.currentItem = item;
+
+  }
+
+
 }
